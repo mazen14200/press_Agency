@@ -1,0 +1,83 @@
+﻿@model press_Agency.Models.post
+
+@{
+    ViewBag.Title = "Refuse";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+
+}
+
+<h2>Refuse</h2>
+
+<h3>Are you sure you want to Refuse this?</h3>
+<div >
+    <h4>post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            @Html.DisplayNameFor(model => model.artical_Title)
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large ;text-align:right;">
+            @Html.DisplayFor(model => model.artical_Title)
+        </dd>
+
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            @Html.DisplayNameFor(model => model.artical_Body)
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#c3e4ed ; font-size:20px ;text-align:right;">
+            @Html.DisplayFor(model => model.artical_Body)
+        </dd>
+
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            @Html.DisplayNameFor(model => model.postCreationDate)
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#c3e4ed ; font-size:20px">
+            @Html.DisplayFor(model => model.postCreationDate)
+        </dd>
+
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            @Html.DisplayNameFor(model => model.artical_Type)
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#c3e4ed ; font-size:20px">
+            @Html.DisplayFor(model => model.artical_Type)
+        </dd>
+
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            @Html.DisplayNameFor(model => model.NumberOfViewers)
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#c3e4ed ; font-size:20px">
+            @Html.DisplayFor(model => model.NumberOfViewers)
+        </dd>
+
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            @Html.DisplayNameFor(model => model.artical_image)
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#c3e4ed ; font-size:20px">
+            @Html.DisplayFor(model => model.artical_image)
+        </dd>
+
+        <dd>
+            @{
+
+
+                <img src="@Url.Content(Model.artical_image)" , width="850px" height="650px" />
+            }
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Refuse" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index_waiting_posts")
+        </div>
+    }
+</div>

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <table  style="">
+        <tr>
+            <td>
+                <header>
+                    <h1>&nbsp;&nbsp;Press AgencySystem</h1>
+                    <p>Probably the best website in the world</p>
+                    @Html.ActionLink("Logout", "Login", "Login")
+                </header>
+                <main>
+                    @Html.ActionLink("Login", "Login", "Login", new { area = "" }, new { @class = "navbar-brand" })
+                    <ul class="sidebar">
+                        <li> @Html.ActionLink("Profile", "Index", "users")</li>
+
+                        <li> @Html.ActionLink("Create New Post", "Create", "posts")</li>
+
+                        <li>@Html.ActionLink("My Posts", "Index", "posts")</li>
+
+                        @*<li>@Html.ActionLink("Received questions", "Index", "")</li>*@
+                    </ul>
+                </main>
+                <div class="container body-content">
+            </td>
+            <td>
+                @RenderBody()
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

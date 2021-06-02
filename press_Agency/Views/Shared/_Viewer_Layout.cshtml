@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title اخبارنا كل يوم</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <table>
+                    <tr>
+                        @Html.ActionLink("اخبارنا كل يوم", "wall", "posts", new { area = "" }, new { @class = "navbar-brand" })
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left:850px"></td>
+                        <td></td>
+                        <td>
+                        </td>
+                        <td><pre><h4 style=" "><span style="color:#6d231d;background-color:#d1ea96 ; font-size:xx-large;">"اخبارنا كل يوم"</span></h4> </pre></td>
+
+                    </tr>
+                    <tr>
+                        @Html.ActionLink("Register", "Register", "users", new { area = "" }, new { @class = "navbar-brand" })
+                        @Html.ActionLink("Login", "Login", "users", new { area = "" }, new { @class = "navbar-brand" })
+                    </tr>
+                    <tr>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <hr />
+    <footer>
+        <h3 class="alert alert-info" style="background-color:rgb(61 22 82 / 0.66)">
+
+            <table>
+                <tr>
+
+                    <td><a href="~/posts/Index"><pre>  &copy;@DateTime.Now.Year - جميع الحقوق محفوظة لموقع اخبارنا كل يوم  </pre></a></td>
+                    <td><span style="padding-left:40px;"></td>
+                    <td><a href="~/posts/Index"><pre>  اتصل بنا  </pre></a></td>
+                </tr>
+            </table>
+        </h3>
+    </footer>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

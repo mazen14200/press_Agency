@@ -1,0 +1,65 @@
+﻿@model IEnumerable<press_Agency.Models.post>
+@using press_Agency.Models
+
+@{
+    ViewBag.Title = "Wall";
+    Layout = "~/Views/Shared/_Viewer_Layout.cshtml";
+
+}
+
+<h2>Wall</h2>
+
+
+
+
+<hr />
+<hr />
+
+<hr />
+
+@foreach (var item in Model)
+{
+    <spanclass ="navbar-form" style=" align-items:center; padding-block-end:100px; ;text-align:right;">
+        <table>
+            <tr>
+                <td class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large ;text-align:right;">
+                    @Html.DisplayFor(modelItem => item.artical_Title)
+                </td>
+            </tr>
+            <tr>
+                <td class="navbar" style="color:#6d231d;background-color:#c3e4ed ; font-size:20px ;text-align:right;">
+                    @Html.DisplayFor(modelItem => item.artical_Body)
+                </td>
+            </tr>
+            <tr>
+                <td class="navbar" style="color:#fce856;background-color:#7f8384 ; font-size:15px">
+                    @Html.DisplayFor(modelItem => item.postCreationDate)
+                </td>
+            </tr>
+            <tr><td><br /><td></tr>
+            
+            <tr>
+                <td>
+                    <div style="; text-align: center;">
+
+                    @{
+                        if (item.artical_image != null)
+                        {
+                            string ph = Url.Content(item.artical_image);
+                            <img src="@ph" , width="650px" height="400px" />
+                        }
+
+
+                    }
+                </div>
+                </td>
+            </tr>
+
+
+
+            <tr><td><br /><br /><br /><hr /><hr /><hr /><br /><br /><br /><td></tr>
+        </table>
+        
+    </spanclass>
+}
+
