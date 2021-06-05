@@ -1,0 +1,102 @@
+﻿@model press_Agency.Models.user
+
+@{
+    ViewBag.Title = "profile_E";
+    Layout = "~/Views/Shared/_Editor_L.cshtml";
+}
+
+<h2>profile</h2>
+
+<div>
+
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            >
+            @Html.DisplayNameFor(model => model.Fname)
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            >
+            @Html.DisplayFor(model => model.Fname)
+        </dd>
+
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            >
+            @Html.DisplayNameFor(model => model.Lname)
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            >
+            @Html.DisplayFor(model => model.Lname)
+        </dd>
+
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            >
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            >
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            >
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            >
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            >
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            >
+            @Html.DisplayFor(model => model.phoneNumber)
+        </dd>
+
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            >
+            @Html.DisplayNameFor(model => model.photo)
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            >
+            @Html.DisplayFor(model => model.photo)
+        </dd>
+
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            >
+            @Html.DisplayNameFor(model => model.userRole)
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            @Html.DisplayFor(model => model.userRole)
+        </dd>
+        <dd>
+            @{
+
+
+                <img src="@Url.Content(Model.photo)" , width="200px" height="300px" />
+            }
+        </dd>
+    </dl>
+
+    </
+    <p>
+        @{
+            var User = Model;
+
+            Html.ActionLink("Edit", "Edit_E", new { id = User.username });
+
+
+            @Html.ActionLink("Edit profile", "Edit_E", new { id = User.username })
+        }
+    </p>

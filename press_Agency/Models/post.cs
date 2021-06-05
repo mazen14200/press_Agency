@@ -28,5 +28,9 @@ namespace press_Agency.Models
         [NotMapped]
         public HttpPostedFileBase ImageFile { get; set; }
 
-    }
-}
+        public int num_of_likes { get; set; } 
+        public int num_of_dislikes { get; set; }
+
+        public string post_status { get; set; }
+
+    } }

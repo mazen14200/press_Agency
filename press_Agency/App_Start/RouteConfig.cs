@@ -16,7 +16,7 @@ namespace press_Agency
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "posts", action = "wall", id = UrlParameter.Optional }
+                defaults: new { controller = "posts", action = "wall2", id = UrlParameter.Optional }
             );
         }
     }

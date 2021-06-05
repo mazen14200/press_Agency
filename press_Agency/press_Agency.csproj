@@ -46,10 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -137,9 +137,31 @@
     <Compile Include="Migrations\202106021848489_createTables.Designer.cs">
       <DependentUpon>202106021848489_createTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106022344595_createTableQuestions.cs" />
+    <Compile Include="Migrations\202106022344595_createTableQuestions.Designer.cs">
+      <DependentUpon>202106022344595_createTableQuestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106022348019_createTableQuestions1.cs" />
+    <Compile Include="Migrations\202106022348019_createTableQuestions1.Designer.cs">
+      <DependentUpon>202106022348019_createTableQuestions1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106040007204_createTableSavedPosts.cs" />
+    <Compile Include="Migrations\202106040007204_createTableSavedPosts.Designer.cs">
+      <DependentUpon>202106040007204_createTableSavedPosts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106041541192_alterTableQuestions.cs" />
+    <Compile Include="Migrations\202106041541192_alterTableQuestions.Designer.cs">
+      <DependentUpon>202106041541192_alterTableQuestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106041543256_alterTableQuestions1.cs" />
+    <Compile Include="Migrations\202106041543256_alterTableQuestions1.Designer.cs">
+      <DependentUpon>202106041543256_alterTableQuestions1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\identityModel.cs" />
     <Compile Include="Models\post.cs" />
+    <Compile Include="Models\Questions.cs" />
+    <Compile Include="Models\Savedposts.cs" />
     <Compile Include="Models\user.cs" />
     <Compile Include="Models\user_login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,12 +175,44 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images_face_users\2.jpg" />
+    <Content Include="Images_face_users\2.PNG" />
+    <Content Include="Images_face_users\202103290950575057.jpg" />
+    <Content Include="Images_face_users\Capture1.PNG" />
+    <Content Include="Images_face_users\Capture2.PNG" />
+    <Content Include="Images_face_users\d.jpg" />
+    <Content Include="Images_face_users\Image 2.jpg" />
+    <Content Include="Images_face_users\Image 6.jpg" />
+    <Content Include="Images_face_users\Image 8.jpg" />
+    <Content Include="Images_face_users\Image 9.jpg" />
+    <Content Include="Images_face_users\Picture3.jpg" />
+    <Content Include="Images_face_users\Picture4.png" />
+    <Content Include="Images_face_users\schema2.jpg" />
+    <Content Include="Images_face_users\WhatsApp Image 2021-05-19 at 11 %283%29 - Copy.png" />
+    <Content Include="Images_face_users\WhatsApp Image 2021-05-19 at 11 %283%29.png" />
+    <Content Include="post_images\2.PNG" />
+    <Content Include="post_images\20180808020455455.jpg" />
+    <Content Include="post_images\202012201137143714.jpg" />
+    <Content Include="post_images\2021032402010717.jpg" />
+    <Content Include="post_images\202103290950575057.jpg" />
+    <Content Include="post_images\202105240930213021.jpg" />
+    <Content Include="post_images\202105270137373737.jpg" />
+    <Content Include="post_images\64880-ديفيد-دى-خيا-على-تويتر.jpg" />
+    <Content Include="post_images\Capture1.PNG" />
+    <Content Include="post_images\Capture2.PNG" />
+    <Content Include="post_images\cs_rns_cm_beach_dune_002c.dds" />
+    <Content Include="post_images\Image 2.jpg" />
+    <Content Include="post_images\Image 6.jpg" />
+    <Content Include="post_images\Image 8.jpg" />
+    <Content Include="post_images\Picture1.png" />
+    <Content Include="post_images\schema2.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Images_face_users\2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -179,7 +233,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_viewer.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\posts\Approve.cshtml" />
     <Content Include="Views\posts\Create.cshtml" />
@@ -195,14 +249,28 @@
     <Content Include="Views\users\Edit.cshtml" />
     <Content Include="Views\users\Index.cshtml" />
     <Content Include="Views\users\Login.cshtml" />
-    <Content Include="Views\users\pr.cshtml" />
+    <Content Include="Views\deleted\pr.cshtml" />
     <Content Include="Views\users\profile.cshtml" />
     <Content Include="Views\users\Register.cshtml" />
     <Content Include="Views\users\_Admin_Layout.cshtml" />
     <Content Include="Views\Shared\_Admin_Layout.cshtml" />
     <Content Include="Views\Shared\_Editor_L.cshtml" />
-    <Content Include="Views\Shared\_Editor_Layout.cshtml" />
-    <Content Include="Views\Shared\_Viewer_Layout.cshtml" />
+    <Content Include="Views\deleted\_Editor_Layout.cshtml" />
+    <Content Include="Views\deleted\_Viewer_Layout.cshtml" />
+    <Content Include="Views\Shared\_viewer 2.cshtml" />
+    <Content Include="Views\posts\Answeres.cshtml" />
+    <Content Include="Views\posts\Savedposts.cshtml" />
+    <Content Include="Views\posts\My_posts.cshtml" />
+    <Content Include="Views\posts\Time_line.cshtml" />
+    <Content Include="Views\posts\Edit_E.cshtml" />
+    <Content Include="Views\posts\Delete_E.cshtml" />
+    <Content Include="Views\users\profile_E.cshtml" />
+    <Content Include="Views\posts\Time_line2.cshtml" />
+    <Content Include="Views\posts\artical_body.cshtml" />
+    <Content Include="Views\posts\Question.cshtml" />
+    <Content Include="Views\posts\Wall2.cshtml" />
+    <Content Include="Views\posts\artical_body2.cshtml" />
+    <Content Include="Views\users\Edit_E.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -219,6 +287,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202106021848489_createTables.resx">
       <DependentUpon>202106021848489_createTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106022344595_createTableQuestions.resx">
+      <DependentUpon>202106022344595_createTableQuestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106022348019_createTableQuestions1.resx">
+      <DependentUpon>202106022348019_createTableQuestions1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106040007204_createTableSavedPosts.resx">
+      <DependentUpon>202106040007204_createTableSavedPosts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106041541192_alterTableQuestions.resx">
+      <DependentUpon>202106041541192_alterTableQuestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106041543256_alterTableQuestions1.resx">
+      <DependentUpon>202106041543256_alterTableQuestions1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

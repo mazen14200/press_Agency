@@ -1,44 +1,68 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
 </head>
+
+
 <body>
-    <table  style="">
-        <tr>
-            <td>
-                <header>
-                    <h1>&nbsp;&nbsp;Press AgencySystem</h1>
-                    <p>Probably the best website in the world</p>
-                    @Html.ActionLink("Logout", "Login", "Login")
-                </header>
-                <main>
-                    @Html.ActionLink("Login", "Login", "Login", new { area = "" }, new { @class = "navbar-brand" })
-                    <ul class="sidebar">
-                        <li> @Html.ActionLink("Profile", "Index", "users")</li>
+    <nav class=" navbar-btn"  style="background-color:#8d1212 ;">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                        <li> @Html.ActionLink("Create New Post", "Create", "posts")</li>
 
-                        <li>@Html.ActionLink("My Posts", "Index", "posts")</li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Logout", "login", "users")</li>
 
-                        @*<li>@Html.ActionLink("Received questions", "Index", "")</li>*@
-                    </ul>
-                </main>
-                <div class="container body-content">
-            </td>
-            <td>
-                @RenderBody()
-            </td>
-        </tr>
-    </table>
-    <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-    </footer>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Register", "Register", "users")</li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li>@Html.ActionLink("Profile", "profile_E", "users")</li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-left">
+                    <li>@Html.ActionLink("Create New Post", "Create", "posts")</li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-left">
+                    <li>@Html.ActionLink("My Posts", "My_posts", "posts")</li>
+
+                </ul>
+
+
+
+                </ul>
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="">Request Questions</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+
+        <hr />
+        <footer class="bg-light text-center text-lg-start">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                &copy;@DateTime.Now.Year Copyright:
+                <a class="text-dark" href=""> - جميع الحقوق محفوظة لموقع اخبارنا كل يوم</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
     </div>
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

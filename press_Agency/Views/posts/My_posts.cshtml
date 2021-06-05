@@ -1,0 +1,90 @@
+﻿
+@model IEnumerable<press_Agency.Models.post>
+
+@{ ViewBag.Title = "My_posts";
+    Layout = "~/Views/Shared/_Editor_L.cshtml";
+
+    }
+
+<h2>History Page</h2>
+
+<p>
+    @Html.ActionLink("Create New", "create", "posts")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.editor_username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.artical_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.artical_Body)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postCreationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.artical_Type)
+        </th>
+        <th>
+            @Html.DisplayName("views")
+        </th>
+        <th>
+            @Html.DisplayName("Likes")
+        </th>
+        <th>
+            @Html.DisplayName("disLikes")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.artical_image)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.editor_username)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.artical_Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.artical_Body)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.postCreationDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.artical_Type)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NumberOfViewers)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.num_of_likes)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.num_of_dislikes)
+    </td>
+    <td>
+        <img src="@Url.Content(item.artical_image)" width="50" height="50" />
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit_E", new { id = item.id }) |
+        @Html.ActionLink("Add", "create", new { id = item.id }) |
+        @Html.ActionLink("Search", "wall", new { id = item.id }) |
+
+        @Html.ActionLink("Delete", "Delete_E", new { id = item.id })|
+    </td>
+</tr>}
+
+</table>
+
+<div>
+    @Html.ActionLink("Back", "create", "posts")
+</div>

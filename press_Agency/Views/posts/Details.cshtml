@@ -18,7 +18,7 @@
 
         <dd class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large;text-align:right;">
             @Html.DisplayFor(model => model.artical_Title)
-            </dd>
+        </dd>
 
         <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
             @Html.DisplayNameFor(model => model.artical_Body)
@@ -45,11 +45,28 @@
         </dd>
 
         <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
-            @Html.DisplayNameFor(model => model.NumberOfViewers)
+            @Html.DisplayName("views")
+
         </dt>
 
         <dd class="navbar" style="color:#6d231d;background-color:#c3e4ed ; font-size:20px">
             @Html.DisplayFor(model => model.NumberOfViewers)
+        </dd>
+
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            @Html.DisplayName("Likes")
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#c3e4ed ; font-size:20px">
+            @Html.DisplayFor(model => model.num_of_likes)
+        </dd>
+
+        <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">
+            @Html.DisplayName("dislikes")
+        </dt>
+
+        <dd class="navbar" style="color:#6d231d;background-color:#c3e4ed ; font-size:20px">
+            @Html.DisplayFor(model => model.num_of_dislikes)
         </dd>
 
         <dt class="navbar" style="color:#6d231d;background-color:#d1ea96 ; font-size:x-large">

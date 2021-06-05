@@ -1,0 +1,87 @@
+﻿
+@model IEnumerable<press_Agency.Models.post>
+@using press_Agency.Models
+
+@{
+    ViewBag.Title = "Time_line2";
+    Layout = "~/Views/Shared/_viewer.cshtml";
+}
+
+<h2>Time_line2</h2>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.artical_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.editor_username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postCreationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.artical_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.post_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfViewers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.artical_image)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.artical_Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.editor_username)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.postCreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.artical_Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.post_status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfViewers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.artical_image)
+            </td>
+            <td>
+
+                @{
+                    if (item.artical_image != null)
+                    {
+                        string ph = Url.Content(item.artical_image);
+                        <img src="@ph" , width="100px" height="80px" />
+                    }
+
+
+                }
+
+            </td>
+            <td>
+                @Html.ActionLink("update", "Edit", new { id = item.id }) |
+                @Html.ActionLink("View", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })|
+
+            </td>
+        </tr>
+    }
+
+</table>

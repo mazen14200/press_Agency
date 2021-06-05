@@ -54,6 +54,14 @@ namespace press_Agency.Controllers
                                 {
                                     return RedirectToAction("Create", new RouteValueDictionary(new { Controller = "posts", Action = "Create", id = Alredy_username }));
 
+
+                                    return RedirectToAction("profile", new RouteValueDictionary(new { Controller = "users", Action = "profile", id = user1.username }));
+
+                                    return RedirectToAction("My_posts", new RouteValueDictionary(new { Controller = "posts", Action = "My_posts", id = user1.username }));
+
+
+                                    return RedirectToAction("Create", new RouteValueDictionary(new { Controller = "posts", Action = "Create", id = Alredy_username }));
+
                                 }
                                 else if (item.userRole == "Viewer")
                                 {
@@ -81,12 +89,19 @@ namespace press_Agency.Controllers
             return View(user1);
         }
 
-
         public ActionResult profile()
         {
             user admin = db.users.Find("admin");
             return View(admin);
         }
+
+        [Route("users/profile_E/{username}")]
+        public ActionResult profile_E(string username)
+        {
+            user admin = db.users.Find(username);
+            return View(admin);
+        }
+
 
         public ActionResult pr()
         {
@@ -155,11 +170,12 @@ namespace press_Agency.Controllers
                 user.ImageFile.SaveAs(fileName);
                 string userRoleRadio = frm["userRole"].ToString();
                 user.userRole = userRoleRadio;
+
                 db.users.Add(user);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login");
             }
-
+            return Json(new { result = 0 });
             return View(user);
         }
 
@@ -199,6 +215,48 @@ namespace press_Agency.Controllers
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+            return View(user);
+        }
+
+
+
+        // GET: users/Edit/5
+        public ActionResult Edit_E(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            user user = db.users.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        // POST: users/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit_E([Bind(Include = "username,Fname,Lname,Email,password,phoneNumber,photo,ImageFile")] user user, FormCollection frm)
+        {
+            if (ModelState.IsValid)
+            {
+                string fileName = Path.GetFileNameWithoutExtension(user.ImageFile.FileName);
+                string Extension = Path.GetExtension(user.ImageFile.FileName);
+                fileName = fileName + Extension;
+                user.photo = "~/Images_face_users/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Images_face_users/"), fileName);
+                user.ImageFile.SaveAs(fileName);
+
+                string userRoleRadio = frm["userRole"].ToString();
+                user.userRole = userRoleRadio;
+                db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
+                return View(user);
             }
             return View(user);
         }

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <span class="nav navbar-nav navbar-left" style="font-size:30px;">
+                    @Html.ActionLink("اخبارنا كل يوم", "wall2", "posts", new { area = "" }, new { @class = "navbar-brand" })
+                </span>
+                <div class="nav navbar-nav navbar-left">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+
+                <form class="navbar-form navbar-left" role="search">
+                    <label style="padding-right:20px">Filter</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" style="width:500px">
+                    </div>
+                </form>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Register", "Register", "users")</li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Login", "login", "users")</li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+
+        <hr />
+        <footer class="bg-light text-center text-lg-start">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                &copy;@DateTime.Now.Year Copyright:
+                <a class="text-dark" href=""> - جميع الحقوق محفوظة لموقع اخبارنا كل يوم</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

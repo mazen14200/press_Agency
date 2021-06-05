@@ -1,0 +1,101 @@
+﻿
+@model press_Agency.Models.post
+@using press_Agency.Models
+
+
+
+@{
+    ViewBag.Title = "artical_body";
+    Layout = "~/Views/Shared/_Viewer.cshtml";
+
+}
+<h2>artical_body</h2>
+@{var n = Model;
+
+
+
+    <hr />
+    <hr />
+
+    <hr />
+
+
+
+
+    <h3 style="color:cornflowerblue"> @Html.DisplayFor(Model => Model.editor_username) </h3>
+    <p style="display:inline; font-size:17px; margin-left:5px;">@Html.DisplayFor(model => model.postCreationDate)</p>
+    <p style="display: inline;margin-left: 12px; font-size: 17px;">@Html.DisplayFor(model => model.artical_Type)</p>
+    <span class="label label-success" style="margin-left:12px;">@Html.DisplayFor(model => model.NumberOfViewers)</span>
+    <div class="nav" style="color:#000000;background-color:#c3e4ed ; font-size:25px ;text-align:center;">
+        @Html.DisplayFor(model => model.artical_Title)
+    </div>
+
+
+
+
+    <table>
+
+        <tr>
+            <td class="jumbotron" style="color:white; font-size:20px ;text-align:right;">
+                @Html.DisplayFor(model => model.artical_Body)
+            </td>
+        </tr>
+        <tr>
+            <td class="navbar" style="color:#fce856;background-color:#7f8384 ; font-size:15px">
+                @Html.DisplayFor(model => model.postCreationDate)
+            </td>
+        </tr>
+        <tr><td><br /><td></tr>
+
+        <tr>
+            <td>
+                <div style="; text-align: center;">
+
+                    @{
+
+                        if (Model.artical_image != null)
+                        {
+                            string ph = Url.Content(Model.artical_image);
+                            <img src="@ph" , width="650px" height="400px" />
+                        }
+
+
+                    }
+                </div>
+            </td>
+        </tr>
+
+
+    </table>
+
+
+
+    <div class="btn btn-primary" style="margin :12px">
+        @Html.DisplayFor(modelItem => n.num_of_likes)<div style="margin-left:5px;">@Html.ActionLink("Likes", "artical_body", new { id = n.id }) </div>
+    </div>
+    <div class="btn btn-primary" style="margin :12px">
+        @Html.DisplayFor(modelItem => n.num_of_dislikes)<div style="margin-left:5px;">@Html.ActionLink("DisLikes", "artical_body", new { id = -(n.id) }) </div>
+    </div>
+
+
+    <div class="btn btn-primary" style="margin-left:550px">@Html.ActionLink("Save post", "savedPosts", new { id = n.editor_username, id1 = n.id }) </div>
+
+
+
+    <tr><td><br /><br /><br /><hr /><hr /><hr /><br /><br /><br /><td></tr>
+
+    <div class="btn btn-danger" style="margin-left:5px;">@Html.ActionLink("Go Back", "wall") </div>
+
+
+    <br />
+    <br />
+    <br />
+    <hr />
+    <hr />
+    <hr />
+    <br />
+    <br />
+    <br />
+
+
+}

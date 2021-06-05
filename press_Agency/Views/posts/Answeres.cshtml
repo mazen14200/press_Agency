@@ -1,0 +1,31 @@
+﻿
+
+@model IEnumerable<press_Agency.Models.post>
+
+@{ ViewBag.Title = "Answeres";
+   Layout = "~/Views/Shared/_viewer.cshtml";
+
+    }
+
+<h2>Answers of questions</h2>
+<table class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.username)</th>
+            <th>@Html.DisplayNameFor(model => model.editor_name)</th>
+            <th>@Html.DisplayNameFor(model => model.Qusetions)</th>
+            <th>@Html.DisplayNameFor(model => model.Answer)</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td> @Html.DisplayFor(modelItem => item.username)</td>
+    <td> @Html.DisplayFor(modelItem => item.editor_name)</td>
+    <td> @Html.DisplayFor(modelItem => item.Qusetions)</td>
+    <td> @Html.DisplayFor(modelItem => item.Answer)</td>
+</tr>}
+    </tbody>
+</table>

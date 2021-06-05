@@ -14,6 +14,9 @@ namespace press_Agency.Models
         // connection string in the application configuration file.
         public DbSet<user> users { get; set; }
         public DbSet<post> posts { get; set; }
+        public DbSet<Questions> questions { get; set; }
+        public DbSet<Savedposts> Savedposts { get; set; }
+
         public identityModel()
             : base("name=identityModel")
         {

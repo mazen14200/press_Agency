@@ -1,0 +1,39 @@
+﻿@model IEnumerable<press_Agency.Models.post>
+@{
+    ViewBag.Title = "Time_line";
+    Layout = "~/Views/Shared/_viewer.cshtml";
+}
+
+<h2>Time_line</h2>
+
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <div class="jumbotron">
+                    <h3 style="color:cornflowerblue"> @Html.DisplayNameFor(model => model.editor_name) </h3>
+                    <p style="display:inline; font-size:17px; margin-left:5px;">@Html.DisplayNameFor(model => model.postCreationDate)</p>
+                    <p style="display: inline;margin-left: 12px; font-size: 17px;">@Html.DisplayNameFor(model => model.artical_Type)</p>
+                    <span class="label label-success" style="margin-left:12px;">@Html.DisplayNameFor(model => model.NumberOfViewers)</span>
+                    <div style="background-color:white">
+                        <img scr="خبر عاجل.jpeg" />
+                    </div>
+
+                    <a href="#" class="btn btn-primary" style="margin :12px">@Html.DisplayNameFor(model => model.num_of_likes) + "Like"</a>
+                    <a href="#" class="btn btn-primary" @Html.DisplayNameFor(model => model.num_of_dislikes) +"DisLike"</a>
+
+                    <a href="#" class="btn btn-primary" style="margin-left:550px">Save post</a>
+                    <a href="#" class="btn btn-danger" style="margin-left:5px;">See Article body</a>
+
+                </div>
+            </td>
+
+        </tr>
+    </table>
+
+</body>
+</html>
